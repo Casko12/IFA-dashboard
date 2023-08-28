@@ -53,29 +53,17 @@ function Info() {
               </Form.Item>
 
               <Form.Item name="phone" label="Phone Number">
-                <Input placeholder="+440 2546 5236" />
+                <Input placeholder="+84 9011 23444" />
               </Form.Item>
 
-              <Form.Item name="country" initialValue="" label="Country">
+              <Form.Item name="role" initialValue="" label="Role">
                 <Select style={{ width: '100%' }}>
                   <Option value="">Please Select</Option>
-                  <Option value="bangladesh">Bangladesh</Option>
-                  <Option value="india">India</Option>
-                  <Option value="pakistan">Pakistan</Option>
+                  <Option value="director">Director</Option>
+                  <Option value="manager">Manager</Option>
+                  <Option value="staff">Staff</Option>
+                  <Option value="student">Student</Option>
                 </Select>
-              </Form.Item>
-
-              <Form.Item initialValue="" name="city" label="City">
-                <Select style={{ width: '100%' }}>
-                  <Option value="">Please Select</Option>
-                  <Option value="dhaka">Dhaka</Option>
-                  <Option value="khulna">Khulna</Option>
-                  <Option value="barisal">Barisal</Option>
-                </Select>
-              </Form.Item>
-
-              <Form.Item name="website" label="Website">
-                <Input placeholder="www.example.com" />
               </Form.Item>
 
               <Form.Item>
