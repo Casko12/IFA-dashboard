@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { Row, Col, Form, Input, Upload, Select } from 'antd';
+import { Row, Col, Form, Input, Upload, Select, DatePicker } from 'antd';
 import { Link } from 'react-router-dom';
 import UilCamera from '@iconscout/react-unicons/icons/uil-camera';
 import { BasicFormWrapper } from '../../styled';
 import { Button } from '../../../components/buttons/buttons';
 import Heading from '../../../components/heading/heading';
+
+const dateFormat = 'DD/MM/YYYY';
 
 const { Option } = Select;
 function Info() {
@@ -40,20 +42,24 @@ function Info() {
                 </figcaption>
               </figure>
 
-              <Form.Item label="Name" name="name">
-                <Input placeholder="Input Name" />
-              </Form.Item>
-
               <Form.Item
                 label="Email Address"
-                name="email"
+                name="Email"
                 rules={[{ message: 'Please input your email!', type: 'email' }]}
               >
                 <Input placeholder="name@example.com" />
               </Form.Item>
 
-              <Form.Item name="phone" label="Phone Number">
-                <Input placeholder="+84 9011 23444" />
+              <Form.Item label="Name" name="Name">
+                <Input placeholder="Input Name" />
+              </Form.Item>
+
+              <Form.Item name="Birthday" rules={[{ type: 'object', whitespace: true }]} label="Birthday">
+                <DatePicker format={dateFormat} style={{ width: '100%' }} />
+              </Form.Item>
+
+              <Form.Item label="Address" name="Address">
+                <Input placeholder="Input Address" />
               </Form.Item>
 
               <Form.Item name="role" initialValue="" label="Role">
@@ -64,6 +70,14 @@ function Info() {
                   <Option value="staff">Staff</Option>
                   <Option value="student">Student</Option>
                 </Select>
+              </Form.Item>
+
+              <Form.Item name="JoinDate" rules={[{ type: 'object', whitespace: true }]} label="Join date">
+                <DatePicker format={dateFormat} style={{ width: '100%' }} />
+              </Form.Item>
+
+              <Form.Item name="Telephone" label="Phone Number">
+                <Input placeholder="+84 9011 23444" />
               </Form.Item>
 
               <Form.Item>

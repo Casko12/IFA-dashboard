@@ -2,8 +2,6 @@ import React, { lazy, Suspense } from 'react';
 import { Row, Col, Spin } from 'antd';
 import { Routes, Route, NavLink } from 'react-router-dom';
 import UilUser from '@iconscout/react-unicons/icons/uil-user';
-import UilShareAlt from '@iconscout/react-unicons/icons/uil-share-alt';
-import UilBriefcaseAlt from '@iconscout/react-unicons/icons/uil-briefcase-alt';
 import { AddUser } from '../pages/style';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Cards } from '../../components/cards/frame/cards-frame';
@@ -29,18 +27,6 @@ function AddNew() {
                         <NavLink to="./info">
                           <UilUser />
                           Personal Info
-                        </NavLink>
-                      </li>
-                      <li>
-                        <NavLink to="./work">
-                          <UilBriefcaseAlt />
-                          Work Info
-                        </NavLink>
-                      </li>
-                      <li>
-                        <NavLink to="./social">
-                          <UilShareAlt />
-                          Social
                         </NavLink>
                       </li>
                     </ul>

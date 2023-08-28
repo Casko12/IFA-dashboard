@@ -215,7 +215,7 @@ const ThemeLayout = (WrappedComponent) => {
                     <Row>
                       <Col md={12} xs={24}>
                         <span className="admin-footer__copyright">
-                          © 2023<Link to="#">SovWare</Link>
+                          E-Project Sem 3<Link to="#">T2203E</Link>
                         </span>
                       </Col>
                       <Col md={12} xs={24}>
