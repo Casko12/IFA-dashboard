@@ -73,7 +73,7 @@ function MenuItems({ toggleCollapsed }) {
     ]),
     getItem(t('Competitions'), 'Competitions', !topMenu && <UilImages />, [
       getItem(
-        <NavLink onClick={toggleCollapsed} to={`${path}/competitions/list`}>
+        <NavLink onClick={toggleCollapsed} to={`${path}/users/list`}>
           {t('competitions')} {t('list')}
         </NavLink>,
         'competition-list',
@@ -81,7 +81,7 @@ function MenuItems({ toggleCollapsed }) {
       ),
 
       getItem(
-        <NavLink onClick={toggleCollapsed} to={`${path}/competitions/add-competition/`}>
+        <NavLink onClick={toggleCollapsed} to={`${path}/competitions/add-competition`}>
           {t('add')} {t('competition')}
         </NavLink>,
         'addCompetition',
