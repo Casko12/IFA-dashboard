@@ -12,7 +12,7 @@ const AddCompetition = lazy(() => import('../pages/overview/competition'));
 function AddNewCompetition() {
   return (
     <>
-      <PageHeader className="ninjadash-page-header-main" ghost title="Add User" />
+      <PageHeader className="ninjadash-page-header-main" ghost title="Add Competition" />
       <Main>
         <Row gutter={15}>
           <Col xs={24}>
@@ -22,9 +22,9 @@ function AddNewCompetition() {
                   <div className="card-nav">
                     <ul>
                       <li>
-                        <NavLink to="./info">
+                        <NavLink to="./add">
                           <UilUser />
-                          Personal Info
+                          Info
                         </NavLink>
                       </li>
                     </ul>
@@ -39,7 +39,7 @@ function AddNewCompetition() {
                   }
                 >
                   <Routes>
-                    <Route path="/" element={<AddCompetition />} />
+                    <Route path="add" element={<AddCompetition />} />
                   </Routes>
                 </Suspense>
               </Cards>

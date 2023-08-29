@@ -9,7 +9,7 @@ import Heading from '../../../components/heading/heading';
 const dateFormat = 'DD/MM/YYYY';
 
 const { Option } = Select;
-function AddCompetition() {
+function addCompetition() {
   const [state, setState] = useState({
     values: '',
   });
@@ -90,9 +90,7 @@ function AddCompetition() {
                   >
                     Reset
                   </Button>
-                  <Button htmlType="submit" type="primary">
-                    <Link to="/admin/users/add-user/work">Save & Next</Link>
-                  </Button>
+                  <Button htmlType="submit" type="primary" />
                 </div>
               </Form.Item>
             </Form>
@@ -103,4 +101,4 @@ function AddCompetition() {
   );
 }
 
-export default AddCompetition;
+export default addCompetition;
