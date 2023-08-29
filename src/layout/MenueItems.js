@@ -1,4 +1,4 @@
-import { UilUsersAlt } from '@iconscout/react-unicons';
+import { UilUsersAlt, UilImages } from '@iconscout/react-unicons';
 import { Menu } from 'antd';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
@@ -57,20 +57,6 @@ function MenuItems({ toggleCollapsed }) {
 
     getItem(t('users'), 'users', !topMenu && <UilUsersAlt />, [
       getItem(
-        <NavLink onClick={toggleCollapsed} to={`${path}/users/grid`}>
-          {t('users')} {t('grid')}
-        </NavLink>,
-        'user-grid',
-        null,
-      ),
-      getItem(
-        <NavLink onClick={toggleCollapsed} to={`${path}/users/list`}>
-          {t('users')} {t('list')}
-        </NavLink>,
-        'user-list',
-        null,
-      ),
-      getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/users/grid-style`}>
           {t('users')} {t('grid')} {t('style')}
         </NavLink>,
@@ -82,6 +68,23 @@ function MenuItems({ toggleCollapsed }) {
           {t('add')} {t('user')}
         </NavLink>,
         'addUser',
+        null,
+      ),
+    ]),
+    getItem(t('Competitions'), 'Competitions', !topMenu && <UilImages />, [
+      getItem(
+        <NavLink onClick={toggleCollapsed} to={`${path}/competitions/list`}>
+          {t('competitions')} {t('list')}
+        </NavLink>,
+        'competition-list',
+        null,
+      ),
+
+      getItem(
+        <NavLink onClick={toggleCollapsed} to={`${path}/competitions/add-competition/`}>
+          {t('add')} {t('competition')}
+        </NavLink>,
+        'addCompetition',
         null,
       ),
     ]),
