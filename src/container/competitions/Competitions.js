@@ -142,10 +142,10 @@ function Competitions() {
           <PageHeader
             className="ninjadash-page-header-main"
             ghost
-            title="Users Card"
+            title="Competitions List"
             subTitle={
               <>
-                <span className="title-counter">274 Users </span>
+                <span className="title-counter">12 Competitions </span>
                 <AutoComplete
                   onSearch={handleSearch}
                   dataSource={notData}
@@ -157,8 +157,8 @@ function Competitions() {
             }
             buttons={[
               <Button className="btn-add_new" size="default" type="primary" key="1">
-                <Link to="/admin/users/add-user/info">
-                  <UilPlus /> Add New User
+                <Link to="/admin/competitions/add-competition/add">
+                  <UilPlus /> Add New Competition
                 </Link>
               </Button>,
               <NavLink className="action-btn" key="2" to={`${path}/grid`}>
