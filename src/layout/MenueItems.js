@@ -87,6 +87,13 @@ function MenuItems({ toggleCollapsed }) {
         'addCompetition',
         null,
       ),
+      getItem(
+        <NavLink onClick={toggleCollapsed} to={`${path}/competitions/add-prize/add`}>
+          {t('add')} {t('prize')}
+        </NavLink>,
+        'addPrize',
+        null,
+      ),
     ]),
   ];
 
