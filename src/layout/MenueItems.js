@@ -73,7 +73,7 @@ function MenuItems({ toggleCollapsed }) {
     ]),
     getItem(t('Competitions'), 'Competitions', !topMenu && <UilImages />, [
       getItem(
-        <NavLink onClick={toggleCollapsed} to={`${path}/users/list`}>
+        <NavLink onClick={toggleCollapsed} to={`${path}/competitions/list`}>
           {t('competitions')} {t('list')}
         </NavLink>,
         'competition-list',

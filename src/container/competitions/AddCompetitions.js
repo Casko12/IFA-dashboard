@@ -9,7 +9,7 @@ import { Button } from '../../components/buttons/buttons';
 import { AddProductForm } from '../ecommerce/Style';
 import Heading from '../../components/heading/heading';
 
-function AddProduct() {
+function AddCompetition() {
   const PageRoutes = [
     {
       path: '/admin',
@@ -17,7 +17,7 @@ function AddProduct() {
     },
     {
       path: '',
-      breadcrumbName: 'Add Product',
+      breadcrumbName: 'Add Competition',
     },
   ];
   const [form] = Form.useForm();
@@ -161,4 +161,4 @@ function AddProduct() {
   );
 }
 
-export default AddProduct;
+export default AddCompetition;
