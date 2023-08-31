@@ -105,12 +105,6 @@ function AddProduct() {
                                   <Form.Item name="Description" label="Competition Description">
                                     <Input.TextArea rows={5} />
                                   </Form.Item>
-                                  <Form.Item name="mTitle" label="Meta Title">
-                                    <Input />
-                                  </Form.Item>
-                                  <Form.Item name="mKeyword" label="Meta Keyword">
-                                    <Input />
-                                  </Form.Item>
                                 </Cards>
                               </div>
                             </Col>
