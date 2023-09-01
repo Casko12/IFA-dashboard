@@ -9,6 +9,7 @@ import Gallery from './gallery';
 import Pages from './pages';
 import Users from './users';
 import Competitions from './competitions';
+import Exibitions from './exibitions';
 import Widgets from './widgets';
 import withAdminLayout from '../../layout/withAdminLayout';
 
@@ -71,6 +72,7 @@ const Admin = React.memo(() => {
         <Route path="app/task/*" element={<Task />} />
         <Route path="users/*" element={<Users />} />
         <Route path="competitions/*" element={<Competitions />} />
+        <Route path="exibitions/*" element={<Exibitions />} />
         <Route path="app/support/tickets/*" element={<Tickets />} />
         <Route path="app/support/tickets/add" element={<AddTicket />} />
         <Route path="app/support/ticketDetails/:id" element={<TicketDetails />} />

@@ -1,4 +1,4 @@
-import { UilUsersAlt, UilImages } from '@iconscout/react-unicons';
+import { UilUsersAlt, UilImages, UilPresentation } from '@iconscout/react-unicons';
 import { Menu } from 'antd';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
@@ -92,6 +92,23 @@ function MenuItems({ toggleCollapsed }) {
           {t('add')} {t('prize')}
         </NavLink>,
         'addPrize',
+        null,
+      ),
+    ]),
+    getItem(t('Exibitions'), 'Exibitions', !topMenu && <UilPresentation />, [
+      getItem(
+        <NavLink onClick={toggleCollapsed} to={`${path}/exibitions/list`}>
+          {t('exibitions')} {t('list')}
+        </NavLink>,
+        'exibition-list',
+        null,
+      ),
+
+      getItem(
+        <NavLink onClick={toggleCollapsed} to={`${path}/exibitions/add-exibition/add`}>
+          {t('add')} {t('exibition')}
+        </NavLink>,
+        'addExibition',
         null,
       ),
     ]),
