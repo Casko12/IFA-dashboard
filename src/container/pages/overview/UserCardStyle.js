@@ -37,7 +37,7 @@ function UserCardStyle({ user }) {
                 <div className="card__actions">
                   <Button size="default" type="white">
                     <UilCommentAlt />
-                    Chat
+                    Edit
                   </Button>
                   <Button size="default" type="white">
                     View Profile

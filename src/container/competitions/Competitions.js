@@ -13,10 +13,10 @@ import { AutoComplete } from '../../components/autoComplete/autoComplete';
 import { Button } from '../../components/buttons/buttons';
 
 function Competitions() {
-  const { searchData, users } = useSelector((state) => {
+  const { searchData, competitions } = useSelector((state) => {
     return {
       searchData: state.headerSearchData,
-      users: state.users,
+      competitions: state.competitions,
     };
   });
 
@@ -36,31 +36,31 @@ function Competitions() {
     });
   };
 
-  const usersTableData = [];
+  const competitionsTableData = [];
 
-  users.map((user) => {
-    const { id, name, designation, img, status } = user;
+  competitions.map((competition) => {
+    const { Id, Name, StartDate, EndDate, Theme, Description, Status } = competition;
 
-    return usersTableData.push({
-      key: id,
-      user: (
+    return competitionsTableData.push({
+      key: Id,
+      competition: (
         <div className="user-info">
           <figure>
-            <img style={{ width: '40px' }} src={require(`../../${img}`)} alt="" />
+            <img style={{ width: '40px' }} src={require(`../../${Theme}`)} alt="" />
           </figure>
           <figcaption>
             <Heading className="user-name" as="h6">
-              {name}
+              {Name}
             </Heading>
             <span className="user-designation">San Francisco, CA</span>
           </figcaption>
         </div>
       ),
-      email: 'john@gmail.com',
-      company: 'Business Development',
-      position: designation,
-      joinDate: 'January 20, 2020',
-      status: <span className={`status-text ${status}`}>{status}</span>,
+      Name: 'competition 1',
+      StartDate: { StartDate },
+      EndDate: { EndDate },
+      Description: { Description },
+      status: <span className={`status-text ${Status}`}>{Status}</span>,
       action: (
         <div className="table-actions">
           <Button className="btn-icon" type="primary" to="#" shape="circle">
