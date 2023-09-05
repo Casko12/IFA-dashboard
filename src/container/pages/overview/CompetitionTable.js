@@ -19,7 +19,7 @@ function CompetitionListTable() {
 
   const usersTableData = [];
 
-  competitions.map((competition) => {
+  competitions?.map((competition) => {
     const { Id, Name, StartDate, EndDate, Theme, Description, Status } = competition;
 
     return usersTableData.push({
