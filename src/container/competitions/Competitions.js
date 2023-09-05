@@ -1,40 +1,29 @@
-import React, { useState, lazy, Suspense } from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { Row, Col, Pagination, Skeleton } from 'antd';
-import UilPlus from '@iconscout/react-unicons/icons/uil-plus';
-import UilApps from '@iconscout/react-unicons/icons/uil-apps';
-import UilListUl from '@iconscout/react-unicons/icons/uil-list-ul';
-import UilUsersAlt from '@iconscout/react-unicons/icons/uil-users-alt';
-import UilExpandArrowsAlt from '@iconscout/react-unicons/icons/uil-expand-arrows-alt';
-import { Link, Routes, Route, NavLink } from 'react-router-dom';
-import { UsercardWrapper, UserCarrdTop } from '../pages/style';
+import { Row, Col } from 'antd';
+import UilEye from '@iconscout/react-unicons/icons/uil-eye';
+import UilEdit from '@iconscout/react-unicons/icons/uil-edit';
+import UilTrashAlt from '@iconscout/react-unicons/icons/uil-trash-alt';
+import { Link } from 'react-router-dom';
+import UserListTable from '../pages/overview/UserTable';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main, CardToolbox } from '../styled';
+import Heading from '../../components/heading/heading';
 import { AutoComplete } from '../../components/autoComplete/autoComplete';
 import { Button } from '../../components/buttons/buttons';
-import { Cards } from '../../components/cards/frame/cards-frame';
-
-const User = lazy(() => import('../pages/overview/UserCard'));
-const UserCardStyle = lazy(() => import('../pages/overview/UserCardStyle'));
-const UserCardList = lazy(() => import('../pages/overview/UserCardList'));
-const UserCardGroup = lazy(() => import('../pages/overview/UserCardGroup'));
 
 function Competitions() {
-  const { searchData, users, userGroup } = useSelector((state) => {
+  const { searchData, users } = useSelector((state) => {
     return {
       searchData: state.headerSearchData,
       users: state.users,
-      userGroup: state.userGroup,
     };
   });
 
-  const path = '.';
-
   const [state, setState] = useState({
     notData: searchData,
-    current: 0,
-    pageSize: 0,
-    page: 0,
+    selectedRowKeys: 0,
+    selectedRows: 0,
   });
 
   const { notData } = state;
@@ -47,159 +36,80 @@ function Competitions() {
     });
   };
 
-  const onShowSizeChange = (current, pageSize) => {
-    setState({ ...state, current, pageSize });
-  };
+  const usersTableData = [];
 
-  const onChange = (page) => {
-    setState({ ...state, page });
-  };
+  users.map((user) => {
+    const { id, name, designation, img, status } = user;
 
-  const GridView = React.memo(() => {
-    return users.map((user) => {
-      const { id } = user;
-
-      return (
-        <Col key={id} xxl={6} xl={8} sm={12} xs={24}>
-          <Suspense
-            fallback={
-              <Cards headless>
-                <Skeleton avatar active />
-              </Cards>
-            }
-          >
-            <User user={user} />
-          </Suspense>
-        </Col>
-      );
-    });
-  });
-
-  const ListView = React.memo(() => {
-    return users.map((user) => {
-      const { id } = user;
-
-      return (
-        <Col key={id} xxl={12} xl={12} sm={24} xs={24}>
-          <Suspense
-            fallback={
-              <Cards headless>
-                <Skeleton avatar active />
-              </Cards>
-            }
-          >
-            <UserCardList user={user} />
-          </Suspense>
-        </Col>
-      );
-    });
-  });
-
-  const GridStyle = React.memo(() => {
-    return users.map((user) => {
-      const { id } = user;
-
-      return (
-        <Col key={id} xxl={6} xl={8} sm={12} xs={24}>
-          <Suspense
-            fallback={
-              <Cards headless>
-                <Skeleton avatar active />
-              </Cards>
-            }
-          >
-            <UserCardStyle user={user} />
-          </Suspense>
-        </Col>
-      );
-    });
-  });
-
-  const GridGroup = React.memo(() => {
-    return userGroup.map((user) => {
-      const { id } = user;
-
-      return (
-        <Col key={id} xxl={8} md={12} sm={24} xs={24}>
-          <Suspense
-            fallback={
-              <Cards headless>
-                <Skeleton avatar active />
-              </Cards>
-            }
-          >
-            <UserCardGroup user={user} />
-          </Suspense>
-        </Col>
-      );
+    return usersTableData.push({
+      key: id,
+      user: (
+        <div className="user-info">
+          <figure>
+            <img style={{ width: '40px' }} src={require(`../../${img}`)} alt="" />
+          </figure>
+          <figcaption>
+            <Heading className="user-name" as="h6">
+              {name}
+            </Heading>
+            <span className="user-designation">San Francisco, CA</span>
+          </figcaption>
+        </div>
+      ),
+      email: 'john@gmail.com',
+      company: 'Business Development',
+      position: designation,
+      joinDate: 'January 20, 2020',
+      status: <span className={`status-text ${status}`}>{status}</span>,
+      action: (
+        <div className="table-actions">
+          <Button className="btn-icon" type="primary" to="#" shape="circle">
+            <UilEye />
+          </Button>
+          <Button className="btn-icon" type="info" to="#" shape="circle">
+            <UilEdit />
+          </Button>
+          <Button className="btn-icon" type="danger" to="#" shape="circle">
+            <UilTrashAlt />
+          </Button>
+        </div>
+      ),
     });
   });
 
   return (
     <>
       <CardToolbox>
-        <UserCarrdTop>
-          <PageHeader
-            className="ninjadash-page-header-main"
-            ghost
-            title="Competitions List"
-            subTitle={
-              <>
-                <span className="title-counter">12 Competitions </span>
-                <AutoComplete
-                  onSearch={handleSearch}
-                  dataSource={notData}
-                  placeholder="Search by Name"
-                  width="100%"
-                  patterns
-                />
-              </>
-            }
-            buttons={[
-              <Button className="btn-add_new" size="default" type="primary" key="1">
-                <Link to="/admin/competitions/add-competition/add">
-                  <UilPlus /> Add New Competition
-                </Link>
-              </Button>,
-              <NavLink className="action-btn" key="2" to={`${path}/grid`}>
-                <UilApps />
-              </NavLink>,
-              <NavLink className="action-btn" key="3" to={`${path}/list`}>
-                <UilListUl />
-              </NavLink>,
-              <NavLink className="action-btn" key="4" to={`${path}/grid-style`}>
-                <UilExpandArrowsAlt />
-              </NavLink>,
-              <NavLink className="action-btn" key="5" to={`${path}/grid-group`}>
-                <UilUsersAlt />
-              </NavLink>,
-            ]}
-          />
-        </UserCarrdTop>
+        <PageHeader
+          className="ninjadash-page-header-main"
+          ghost
+          title="Competition Lists"
+          subTitle={
+            <>
+              <span className="title-counter">274 Users </span>
+              <AutoComplete
+                onSearch={handleSearch}
+                dataSource={notData}
+                placeholder="Search by Name"
+                width="100%"
+                patterns
+              />
+            </>
+          }
+          buttons={[
+            <Button className="btn-add_new" size="default" type="primary" key="1">
+              <Link to="admin/competitions/add-competition/add">+ Add New Competition</Link>
+            </Button>,
+          ]}
+        />
       </CardToolbox>
-      <Main>
-        <UsercardWrapper>
-          <Row gutter={25}>
-            <Routes>
-              <Route path="grid" element={<GridView />} />
-              <Route path="list" element={<ListView />} />
-              <Route path="grid-group" element={<GridGroup />} />
-              <Route path="grid-style" element={<GridStyle />} />
-            </Routes>
 
-            <Col xs={24}>
-              <div className="user-card-pagination">
-                <Pagination
-                  onChange={onChange}
-                  showSizeChanger
-                  onShowSizeChange={onShowSizeChange}
-                  defaultCurrent={6}
-                  total={500}
-                />
-              </div>
-            </Col>
-          </Row>
-        </UsercardWrapper>
+      <Main>
+        <Row gutter={15}>
+          <Col md={24}>
+            <UserListTable />
+          </Col>
+        </Row>
       </Main>
     </>
   );
