@@ -83,10 +83,10 @@ function Competitions() {
         <PageHeader
           className="ninjadash-page-header-main"
           ghost
-          title="Competition Lists"
+          title="Competitions List"
           subTitle={
             <>
-              <span className="title-counter">274 Users </span>
+              <span className="title-counter">5 Competitions </span>
               <AutoComplete
                 onSearch={handleSearch}
                 dataSource={notData}
