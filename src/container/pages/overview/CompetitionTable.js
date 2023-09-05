@@ -17,12 +17,12 @@ function CompetitionListTable() {
     };
   });
 
-  const usersTableData = [];
+  const competitionsTableData = [];
 
   competitions?.map((competition) => {
     const { Id, Name, StartDate, EndDate, Theme, Description, Status } = competition;
 
-    return usersTableData.push({
+    return competitionsTableData.push({
       key: Id,
       competition: (
         <div className="user-info">
@@ -58,7 +58,7 @@ function CompetitionListTable() {
     });
   });
 
-  const usersTableColumns = [
+  const competitionsTableColumns = [
     {
       title: 'Name',
       dataIndex: 'Name',
@@ -105,11 +105,11 @@ function CompetitionListTable() {
         <TableWrapper className="table-responsive">
           <Table
             rowSelection={rowSelection}
-            dataSource={usersTableData}
-            columns={usersTableColumns}
+            dataSource={competitionsTableData}
+            columns={competitionsTableColumns}
             pagination={{
               defaultPageSize: 5,
-              total: usersTableData.length,
+              total: competitionsTableData.length,
               showTotal: (total, range) => `${range[0]}-${range[1]} of ${total} items`,
             }}
           />
