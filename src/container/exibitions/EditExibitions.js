@@ -66,7 +66,7 @@ function EditExibition() {
 
   return (
     <>
-      <PageHeader className="ninjadash-page-header-main" title="Add Exibition" routes={PageRoutes} />
+      <PageHeader className="ninjadash-page-header-main" title="Edit Exibition" routes={PageRoutes} />
       <Main>
         <Row gutter={15}>
           <Col xs={24}>
