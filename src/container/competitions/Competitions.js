@@ -5,7 +5,7 @@ import UilEye from '@iconscout/react-unicons/icons/uil-eye';
 import UilEdit from '@iconscout/react-unicons/icons/uil-edit';
 import UilTrashAlt from '@iconscout/react-unicons/icons/uil-trash-alt';
 import { Link } from 'react-router-dom';
-import UserListTable from '../pages/overview/UserTable';
+import CompetitionListTable from '../pages/overview/CompetitionTable';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { Main, CardToolbox } from '../styled';
 import Heading from '../../components/heading/heading';
@@ -98,7 +98,7 @@ function Competitions() {
           }
           buttons={[
             <Button className="btn-add_new" size="default" type="primary" key="1">
-              <Link to="admin/competitions/add-competition/add">+ Add New Competition</Link>
+              <Link to="/admin/competitions/add-competition/add">+ Add New Competition</Link>
             </Button>,
           ]}
         />
@@ -107,7 +107,7 @@ function Competitions() {
       <Main>
         <Row gutter={15}>
           <Col md={24}>
-            <UserListTable />
+            <CompetitionListTable />
           </Col>
         </Row>
       </Main>
