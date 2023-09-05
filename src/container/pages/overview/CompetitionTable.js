@@ -24,7 +24,7 @@ function CompetitionListTable() {
 
     return usersTableData.push({
       key: Id,
-      user: (
+      competition: (
         <div className="user-info">
           <figure>
             <img style={{ width: '40px' }} src={require(`../../../${Theme}`)} alt="" />
