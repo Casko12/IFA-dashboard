@@ -11,7 +11,7 @@ function PagesRoute() {
     <Routes>
       <Route path="/*" element={<Exibitions />} />
       <Route path="add-exibition/*" element={<AddExibition />} />
-        <Route path="edit-exibition/*" element={<EditCompetition />} />
+      <Route path="edit-exibition/*" element={<EditExibition />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
