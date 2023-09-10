@@ -111,6 +111,13 @@ function MenuItems({ toggleCollapsed }) {
         'addExibition',
         null,
       ),
+      getItem(
+        <NavLink onClick={toggleCollapsed} to={`${path}/exibitions/select-art`}>
+          {t('select')} {t('arts')}
+        </NavLink>,
+        'selectArt',
+        null,
+      ),
     ]),
   ];
 

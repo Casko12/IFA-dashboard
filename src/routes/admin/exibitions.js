@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 const Exibitions = lazy(() => import('../../container/exibitions/Exibitions'));
 const AddExibition = lazy(() => import('../../container/exibitions/AddExibitions'));
 const EditExibition = lazy(() => import('../../container/exibitions/EditExibitions'));
+const SelectArt = lazy(() => import('../../container/exibitions/SelectArt'));
 const NotFound = lazy(() => import('../../container/pages/404'));
 
 function PagesRoute() {
@@ -11,6 +12,7 @@ function PagesRoute() {
     <Routes>
       <Route path="/*" element={<Exibitions />} />
       <Route path="add-exibition/*" element={<AddExibition />} />
+      <Route path="select-art/*" element={<SelectArt />} />
       <Route path="edit-exibition/*" element={<EditExibition />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
