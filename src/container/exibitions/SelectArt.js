@@ -2,13 +2,13 @@ import React, { useState, Suspense, lazy } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Row, Col, Spin, Skeleton } from 'antd';
 import { Link } from 'react-router-dom';
-import { GalleryNav } from './style';
+import { GalleryNav } from '../pages/style';
 import { Main } from '../styled';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { galleryFilter } from '../../redux/gallary/actionCreator';
 import { Cards } from '../../components/cards/frame/cards-frame';
 
-const GalleryCards = lazy(() => import('./overview/GalleryCard'));
+const GalleryCards = lazy(() => import('../pages/overview/GalleryCard'));
 
 function SelectArt() {
   const PageRoutes = [
@@ -18,7 +18,7 @@ function SelectArt() {
     },
     {
       path: '',
-      breadcrumbName: 'Gallery',
+      breadcrumbName: 'Select Art',
     },
   ];
 
@@ -44,7 +44,7 @@ function SelectArt() {
 
   return (
     <>
-      <PageHeader className="ninjadash-page-header-main" title="Gallery" routes={PageRoutes} />
+      <PageHeader className="ninjadash-page-header-main" title="Select Arts to enter exhibition" routes={PageRoutes} />
       <Main>
         <Row gutter={25}>
           <Col xs={24}>
@@ -57,42 +57,6 @@ function SelectArt() {
                     to="#"
                   >
                     All
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className={state.activeClass === 'webDesign' ? 'active' : 'deactivate'}
-                    onClick={() => handleChange('webDesign')}
-                    to="#"
-                  >
-                    Web Design
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className={state.activeClass === 'uiDesign' ? 'active' : 'deactivate'}
-                    onClick={() => handleChange('uiDesign')}
-                    to="#"
-                  >
-                    UI Design
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className={state.activeClass === 'wireframe' ? 'active' : 'deactivate'}
-                    onClick={() => handleChange('wireframe')}
-                    to="#"
-                  >
-                    Wireframe
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className={state.activeClass === 'Presentation' ? 'active' : 'deactivate'}
-                    onClick={() => handleChange('Presentation')}
-                    to="#"
-                  >
-                    Presentation
                   </Link>
                 </li>
               </ul>
