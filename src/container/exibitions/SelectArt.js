@@ -117,7 +117,7 @@ function SelectArt() {
                   >
                     Cancel
                   </Button>
-                  <Button size="large" htmlType="submit" type="primary" raised>
+                  <Button onClick={handleSubmit} type="primary">
                     Save
                   </Button>
                 </Form.Item>
