@@ -74,7 +74,7 @@ function EditExibition() {
               <Row gutter={25} justify="center">
                 <Col xxl={12} md={18} xs={24}>
                   <AddProductForm>
-                    <Form style={{ width: '100%' }} form={form} name="addExibition" onFinish={handleSubmit}>
+                    <Form style={{ width: '100%' }} form={form} name="editExibition" onFinish={handleSubmit}>
                       <BasicFormWrapper>
                         <div className="add-product-block">
                           <Row gutter={15}>
