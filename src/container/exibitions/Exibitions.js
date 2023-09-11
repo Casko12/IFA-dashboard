@@ -12,6 +12,7 @@ import { Button } from '../../components/buttons/buttons';
 import { Cards } from '../../components/cards/frame/cards-frame';
 import { PageHeader } from '../../components/page-headers/page-headers';
 import { axiosDataRead, axiosDataSearch, axiosDataDelete } from '../../redux/crud/axios/actionCreator';
+import axios from "axios";
 
 function Exihibitions() {
   const dispatch = useDispatch();
@@ -21,12 +22,7 @@ function Exihibitions() {
       isLoading: state.AxiosCrud.loading,
     };
   });
-
-  useEffect(() => {
-    if (dispatch) {
-      dispatch(axiosDataRead());
-    }
-  }, [dispatch]);
+  console.log(crud);
 
   const [state, setState] = useState({
     selectedRowKeys: [],
@@ -34,17 +30,40 @@ function Exihibitions() {
   const { selectedRowKeys } = state;
 
   const dataSource = [];
+  const [data, setData] = useState([]);
+  // const [loading, setLoading] = useState(true);
+  // const [error, setError] = useState(null);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('https://localhost:7064/api/exibition');
+        setData(response.data);
+        // setLoading(false);
+      } catch (error) {
+        // setError(error.message);
+        // setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+  useEffect(() => {
+    if (dispatch) {
+      dispatch(axiosDataRead());
+    }
+  }, [dispatch]);
+  console.log(data);
   const handleDelete = (id) => {
     const confirm = window.confirm('Are you sure delete this?');
     if (confirm) {
       dispatch(
-        axiosDataDelete({
-          id,
-          getData: () => {
-            dispatch(axiosDataRead());
-          },
-        }),
+          axiosDataDelete({
+            id,
+            getData: () => {
+              dispatch(axiosDataRead());
+            },
+          }),
       );
     }
     return false;
