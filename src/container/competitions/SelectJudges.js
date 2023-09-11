@@ -55,7 +55,7 @@ function SelectJudges() {
                                       <Option value="competition3">Competition 3</Option>
                                     </Select>
                                   </Form.Item>
-                                  <Form.Item name="CompetitionId" initialValue="" label="Judge 1">
+                                  <Form.Item name="JudgeId1" initialValue="" label="Judge 1">
                                     <Select style={{ width: '100%' }}>
                                       <Option value="">Please Select</Option>
                                       <Option value="Judge 1">Judge 1</Option>
@@ -63,7 +63,7 @@ function SelectJudges() {
                                       <Option value="Judge 1">Judge 3</Option>
                                     </Select>
                                   </Form.Item>
-                                  <Form.Item name="CompetitionId" initialValue="" label="Judge 2">
+                                  <Form.Item name="JudgeId2" initialValue="" label="Judge 2">
                                     <Select style={{ width: '100%' }}>
                                       <Option value="">Please Select</Option>
                                       <Option value="Judge 1">Judge 1</Option>
@@ -71,7 +71,7 @@ function SelectJudges() {
                                       <Option value="Judge 3">Judge 3</Option>
                                     </Select>
                                   </Form.Item>
-                                  <Form.Item name="CompetitionId" initialValue="" label="Judge 3">
+                                  <Form.Item name="JudgeId3" initialValue="" label="Judge 3">
                                     <Select style={{ width: '100%' }}>
                                       <Option value="">Please Select</Option>
                                       <Option value="Judge 1">Judge 1</Option>

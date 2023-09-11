@@ -6,6 +6,7 @@ import UilPlus from '@iconscout/react-unicons/icons/uil-plus';
 import UilSearch from '@iconscout/react-unicons/icons/uil-search';
 import UilEdit from '@iconscout/react-unicons/icons/uil-edit';
 import UilTrash from '@iconscout/react-unicons/icons/uil-trash';
+import axios from 'axios';
 import { RecordViewWrapper } from '../crud/axios/Style';
 import { Main, TableWrapper } from '../styled';
 import { Button } from '../../components/buttons/buttons';
@@ -21,12 +22,7 @@ function Competitions() {
       isLoading: state.AxiosCrud.loading,
     };
   });
-
-  useEffect(() => {
-    if (dispatch) {
-      dispatch(axiosDataRead());
-    }
-  }, [dispatch]);
+  console.log(crud);
 
   const [state, setState] = useState({
     selectedRowKeys: [],
@@ -34,7 +30,30 @@ function Competitions() {
   const { selectedRowKeys } = state;
 
   const dataSource = [];
+  const [data, setData] = useState([]);
+  // const [loading, setLoading] = useState(true);
+  // const [error, setError] = useState(null);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('https://localhost:7064/api/competition');
+        setData(response.data);
+        // setLoading(false);
+      } catch (error) {
+        // setError(error.message);
+        // setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+  useEffect(() => {
+    if (dispatch) {
+      dispatch(axiosDataRead());
+    }
+  }, [dispatch]);
+  console.log(data);
   const handleDelete = (id) => {
     const confirm = window.confirm('Are you sure delete this?');
     if (confirm) {
