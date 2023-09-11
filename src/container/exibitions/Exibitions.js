@@ -149,8 +149,8 @@ function Exihibitions() {
         subTitle={
           <div>
             <Button className="btn-add_new" size="default" key="1" type="primary">
-              <Link to="/admin/competitions/add-competition/add">
-                <UilPlus /> <span>Add New Competition</span>
+              <Link to="/admin/exibitions/add-exibition/add">
+                <UilPlus /> <span>Add New Exhibition</span>
               </Link>
             </Button>
           </div>
@@ -164,7 +164,7 @@ function Exihibitions() {
           </div>,
         ]}
         ghost
-        title="Competitions List"
+        title="Exhibitions List"
       />
       <Main>
         <Row gutter={15}>
