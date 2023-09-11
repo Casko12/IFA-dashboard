@@ -90,8 +90,8 @@ function Info() {
                   >
                     Reset
                   </Button>
-                  <Button htmlType="submit" type="primary">
-                    <Link to="/admin/users/add-user/work">Save & Next</Link>
+                  <Button onClick={handleSubmit} type="primary">
+                    Save
                   </Button>
                 </div>
               </Form.Item>
