@@ -88,6 +88,13 @@ function MenuItems({ toggleCollapsed }) {
         null,
       ),
       getItem(
+          <NavLink onClick={toggleCollapsed} to={`${path}/competitions/select-judges`}>
+            {t('select')} {t('judges')}
+          </NavLink>,
+          'selectJudges',
+          null,
+      ),
+      getItem(
         <NavLink onClick={toggleCollapsed} to={`${path}/competitions/add-prize/add`}>
           {t('add')} {t('prize')}
         </NavLink>,
